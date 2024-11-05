@@ -22,6 +22,7 @@ import static br.edu.utfpr.darlantcc_v1.ActivityP2.contP2;
 import static br.edu.utfpr.darlantcc_v1.ActivityP3.contP3;
 import static br.edu.utfpr.darlantcc_v1.ActivityP4.contP4;
 import static br.edu.utfpr.darlantcc_v1.ActivityP5.contP5;
+import static br.edu.utfpr.darlantcc_v1.ActivityP6.contP6;
 
 import android.app.Activity;
 import android.content.Context;
@@ -44,7 +45,7 @@ import br.edu.utfpr.darlantcc_v1.model.Pessoa;
 import br.edu.utfpr.darlantcc_v1.model.Resposta;
 import br.edu.utfpr.darlantcc_v1.persistencia.RespostaDatabase;
 
-public class ActivityP6 extends AppCompatActivity {
+public class ActivityP7 extends AppCompatActivity {
 
     private Button botaoProximo;
     private Button botaoAnterior;
@@ -62,7 +63,7 @@ public class ActivityP6 extends AppCompatActivity {
     private ArrayList<Resposta> listaRespostas; //local
     private RespostaDatabase respostaDatabase; //BD Room
 
-    public static Context contP6;
+    public static Context contP7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +71,7 @@ public class ActivityP6 extends AppCompatActivity {
         //Seta fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_p6);
+        setContentView(R.layout.activity_p7);
 
         /*ActionBar actionBar = getSupportActionBar();
         if (actionBar != null){
@@ -108,8 +109,8 @@ public class ActivityP6 extends AppCompatActivity {
             public void onClick(View view) {
 
                 //destino             origem
-                //ActivityP6.iniciar(ActivityP3.this,PESSOA,ID);
-                ActivityP7.iniciar(ActivityP6.this,PESSOA,ID);
+                //ActivityP7.iniciar(ActivityP3.this,PESSOA,ID);
+                ActivityP8.iniciar(ActivityP7.this,PESSOA,ID);
 
             }
         });
@@ -128,7 +129,7 @@ public class ActivityP6 extends AppCompatActivity {
         imagem1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ActivityP6.this,
+                Toast.makeText(ActivityP7.this,
                         getResources().getString(R.string.clicou_imagem1),
                         Toast.LENGTH_LONG).show();
 
@@ -140,7 +141,7 @@ public class ActivityP6 extends AppCompatActivity {
         imagem2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ActivityP6.this,
+                Toast.makeText(ActivityP7.this,
                         getResources().getString(R.string.clicou_imagem2),
                         Toast.LENGTH_LONG).show();
 
@@ -149,7 +150,7 @@ public class ActivityP6 extends AppCompatActivity {
         });
 
         //Para finalizar no filho
-        contP6= ActivityP6.this;
+        contP7= ActivityP7.this;
     }
 
     public void atualizarResposta(int id){
@@ -165,7 +166,7 @@ public class ActivityP6 extends AppCompatActivity {
 
     public static void iniciar(AppCompatActivity origem, Pessoa pessoa, String id){
 
-        Intent intent = new Intent(origem, ActivityP6.class);
+        Intent intent = new Intent(origem, ActivityP7.class);
 
         intent.putExtra("CAMPO_ID", id);
         intent.putExtra("CAMPO_ID_PESSOA", String.valueOf(pessoa.getID()));
@@ -209,12 +210,15 @@ public class ActivityP6 extends AppCompatActivity {
                 Activity parentActivity3;
                 Activity parentActivity4;
                 Activity parentActivity5;
+                Activity parentActivity6;
 
                 parentActivity1=(Activity)contP1;
                 parentActivity2=(Activity)contP2;
                 parentActivity3=(Activity)contP3;
                 parentActivity4=(Activity)contP4;
                 parentActivity5=(Activity)contP5;
+                parentActivity6=(Activity)contP6;
+                parentActivity6.finish();
                 parentActivity5.finish();
                 parentActivity4.finish();
                 parentActivity3.finish();

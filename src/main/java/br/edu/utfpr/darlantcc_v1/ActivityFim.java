@@ -17,16 +17,35 @@
 
 package br.edu.utfpr.darlantcc_v1;
 
+import static br.edu.utfpr.darlantcc_v1.ActivityP1.contP1;
+import static br.edu.utfpr.darlantcc_v1.ActivityP10.contP10;
+import static br.edu.utfpr.darlantcc_v1.ActivityP11.contP11;
+import static br.edu.utfpr.darlantcc_v1.ActivityP12.contP12;
+import static br.edu.utfpr.darlantcc_v1.ActivityP13.contP13;
+import static br.edu.utfpr.darlantcc_v1.ActivityP14.contP14;
+import static br.edu.utfpr.darlantcc_v1.ActivityP15.contP15;
+import static br.edu.utfpr.darlantcc_v1.ActivityP16.contP16;
+import static br.edu.utfpr.darlantcc_v1.ActivityP17.contP17;
+import static br.edu.utfpr.darlantcc_v1.ActivityP18.contP18;
+import static br.edu.utfpr.darlantcc_v1.ActivityP19.contP19;
+import static br.edu.utfpr.darlantcc_v1.ActivityP2.contP2;
+import static br.edu.utfpr.darlantcc_v1.ActivityP20.contP20;
+import static br.edu.utfpr.darlantcc_v1.ActivityP21.contP21;
+import static br.edu.utfpr.darlantcc_v1.ActivityP22.contP22;
+import static br.edu.utfpr.darlantcc_v1.ActivityP23.contP23;
+import static br.edu.utfpr.darlantcc_v1.ActivityP24.contP24;
+import static br.edu.utfpr.darlantcc_v1.ActivityP25.contP25;
+import static br.edu.utfpr.darlantcc_v1.ActivityP3.contP3;
+import static br.edu.utfpr.darlantcc_v1.ActivityP4.contP4;
+import static br.edu.utfpr.darlantcc_v1.ActivityP5.contP5;
+import static br.edu.utfpr.darlantcc_v1.ActivityP6.contP6;
+import static br.edu.utfpr.darlantcc_v1.ActivityP7.contP7;
+import static br.edu.utfpr.darlantcc_v1.ActivityP8.contP8;
+import static br.edu.utfpr.darlantcc_v1.ActivityP9.contP9;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import br.edu.utfpr.darlantcc_v1.model.Pessoa;
-import br.edu.utfpr.darlantcc_v1.model.Resposta;
-import br.edu.utfpr.darlantcc_v1.persistencia.RespostaDatabase;
-
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,16 +53,14 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-import static br.edu.utfpr.darlantcc_v1.ActivityP1.contP1;
-import static br.edu.utfpr.darlantcc_v1.ActivityP2.contP2;
-import static br.edu.utfpr.darlantcc_v1.ActivityP3.contP3;
-import static br.edu.utfpr.darlantcc_v1.ActivityP4.contP4;
-import static br.edu.utfpr.darlantcc_v1.ActivityP5.contP5;
-import static br.edu.utfpr.darlantcc_v1.ActivityP6.contP6;
+import br.edu.utfpr.darlantcc_v1.model.Pessoa;
+import br.edu.utfpr.darlantcc_v1.model.Resposta;
+import br.edu.utfpr.darlantcc_v1.persistencia.RespostaDatabase;
 
 public class ActivityFim extends AppCompatActivity {
 
@@ -112,6 +129,27 @@ public class ActivityFim extends AppCompatActivity {
                 Activity parentActivity4;
                 Activity parentActivity5;
                 Activity parentActivity6;
+                Activity parentActivity7;
+                Activity parentActivity8;
+                Activity parentActivity9;
+                Activity parentActivity10;
+
+                Activity parentActivity11;
+                Activity parentActivity12;
+                Activity parentActivity13;
+                Activity parentActivity14;
+                Activity parentActivity15;
+                Activity parentActivity16;
+                Activity parentActivity17;
+                Activity parentActivity18;
+                Activity parentActivity19;
+                Activity parentActivity20;
+
+                Activity parentActivity21;
+                Activity parentActivity22;
+                Activity parentActivity23;
+                Activity parentActivity24;
+                Activity parentActivity25;
 
                 parentActivity1=(Activity)contP1;
                 parentActivity2=(Activity)contP2;
@@ -119,6 +157,50 @@ public class ActivityFim extends AppCompatActivity {
                 parentActivity4=(Activity)contP4;
                 parentActivity5=(Activity)contP5;
                 parentActivity6=(Activity)contP6;
+                parentActivity7=(Activity)contP7;
+                parentActivity8=(Activity)contP8;
+                parentActivity9=(Activity)contP9;
+                parentActivity10=(Activity)contP10;
+
+                parentActivity11=(Activity)contP11;
+                parentActivity12=(Activity)contP12;
+                parentActivity13=(Activity)contP13;
+                parentActivity14=(Activity)contP14;
+                parentActivity15=(Activity)contP15;
+                parentActivity16=(Activity)contP16;
+                parentActivity17=(Activity)contP17;
+                parentActivity18=(Activity)contP18;
+                parentActivity19=(Activity)contP19;
+                parentActivity20=(Activity)contP20;
+
+                parentActivity21=(Activity)contP21;
+                parentActivity22=(Activity)contP22;
+                parentActivity23=(Activity)contP23;
+                parentActivity24=(Activity)contP24;
+                parentActivity25=(Activity)contP25;
+
+
+                parentActivity25.finish();
+                parentActivity24.finish();
+                parentActivity23.finish();
+                parentActivity22.finish();
+                parentActivity21.finish();
+
+                parentActivity20.finish();
+                parentActivity19.finish();
+                parentActivity18.finish();
+                parentActivity17.finish();
+                parentActivity16.finish();
+                parentActivity15.finish();
+                parentActivity14.finish();
+                parentActivity13.finish();
+                parentActivity12.finish();
+                parentActivity11.finish();
+
+                parentActivity10.finish();
+                parentActivity9.finish();
+                parentActivity8.finish();
+                parentActivity7.finish();
                 parentActivity6.finish();
                 parentActivity5.finish();
                 parentActivity4.finish();

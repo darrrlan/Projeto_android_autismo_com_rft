@@ -76,13 +76,184 @@
                 android:value=".ActivityP5" />
         </activity>
         <activity
-            android:name=".ActivityFim"
+            android:name=".ActivityP7"
             android:exported="true"
             android:parentActivityName=".ActivityP6"> <!-- Define qual serah a activity anterior do botao up -->
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ActivityP6" />
+        </activity>
+        <activity
+            android:name=".ActivityP8"
+            android:exported="true"
+            android:parentActivityName=".ActivityP7"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP7" />
+        </activity>
+        <activity
+            android:name=".ActivityP9"
+            android:exported="true"
+            android:parentActivityName=".ActivityP8"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP8" />
+        </activity>
+        <activity
+            android:name=".ActivityP10"
+            android:exported="true"
+            android:parentActivityName=".ActivityP9"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP9" />
+        </activity>
+        <activity
+            android:name=".ActivityP11"
+            android:exported="true"
+            android:parentActivityName=".ActivityP10"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP10" />
+        </activity>
+        <activity
+            android:name=".ActivityP12"
+            android:exported="true"
+            android:parentActivityName=".ActivityP11"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP11" />
+        </activity>
+        <activity
+            android:name=".ActivityP13"
+            android:exported="true"
+            android:parentActivityName=".ActivityP12"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP12" />
+        </activity>
+        <activity
+            android:name=".ActivityP14"
+            android:exported="true"
+            android:parentActivityName=".ActivityP13"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP13" />
+        </activity>
+        <activity
+            android:name=".ActivityP15"
+            android:exported="true"
+            android:parentActivityName=".ActivityP14"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP14" />
+        </activity>
+        <activity
+            android:name=".ActivityP16"
+            android:exported="true"
+            android:parentActivityName=".ActivityP15"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP15" />
+        </activity>
+        <activity
+            android:name=".ActivityP17"
+            android:exported="true"
+            android:parentActivityName=".ActivityP16"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP16" />
+        </activity>
+        <activity
+            android:name=".ActivityP18"
+            android:exported="true"
+            android:parentActivityName=".ActivityP17"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP17" />
+        </activity>
+        <activity
+            android:name=".ActivityP19"
+            android:exported="true"
+            android:parentActivityName=".ActivityP18"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP18" />
+        </activity>
+        <activity
+            android:name=".ActivityP20"
+            android:exported="true"
+            android:parentActivityName=".ActivityP19"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP19" />
+        </activity>
+        <activity
+            android:name=".ActivityP21"
+            android:exported="true"
+            android:parentActivityName=".ActivityP20"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP20" />
+        </activity>
+        <activity
+            android:name=".ActivityP22"
+            android:exported="true"
+            android:parentActivityName=".ActivityP21"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP21" />
+        </activity>
+        <activity
+            android:name=".ActivityP23"
+            android:exported="true"
+            android:parentActivityName=".ActivityP22"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP22" />
+        </activity>
+        <activity
+            android:name=".ActivityP24"
+            android:exported="true"
+            android:parentActivityName=".ActivityP23"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP23" />
+        </activity>
+        <activity
+            android:name=".ActivityP25"
+            android:exported="true"
+            android:parentActivityName=".ActivityP24"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP24" />
+        </activity>
+        <activity
+            android:name=".ActivityFim"
+            android:exported="true"
+            android:parentActivityName=".ActivityP25"> <!-- Define qual serah a activity anterior do botao up -->
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ActivityP25" />
         </activity>
 
         <activity

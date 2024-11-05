@@ -18,10 +18,29 @@
 package br.edu.utfpr.darlantcc_v1;
 
 import static br.edu.utfpr.darlantcc_v1.ActivityP1.contP1;
+import static br.edu.utfpr.darlantcc_v1.ActivityP10.contP10;
+import static br.edu.utfpr.darlantcc_v1.ActivityP11.contP11;
+import static br.edu.utfpr.darlantcc_v1.ActivityP12.contP12;
+import static br.edu.utfpr.darlantcc_v1.ActivityP13.contP13;
+import static br.edu.utfpr.darlantcc_v1.ActivityP14.contP14;
+import static br.edu.utfpr.darlantcc_v1.ActivityP15.contP15;
+import static br.edu.utfpr.darlantcc_v1.ActivityP16.contP16;
+import static br.edu.utfpr.darlantcc_v1.ActivityP17.contP17;
+import static br.edu.utfpr.darlantcc_v1.ActivityP18.contP18;
+import static br.edu.utfpr.darlantcc_v1.ActivityP19.contP19;
 import static br.edu.utfpr.darlantcc_v1.ActivityP2.contP2;
+import static br.edu.utfpr.darlantcc_v1.ActivityP20.contP20;
+import static br.edu.utfpr.darlantcc_v1.ActivityP21.contP21;
+import static br.edu.utfpr.darlantcc_v1.ActivityP22.contP22;
+import static br.edu.utfpr.darlantcc_v1.ActivityP23.contP23;
+import static br.edu.utfpr.darlantcc_v1.ActivityP24.contP24;
 import static br.edu.utfpr.darlantcc_v1.ActivityP3.contP3;
 import static br.edu.utfpr.darlantcc_v1.ActivityP4.contP4;
 import static br.edu.utfpr.darlantcc_v1.ActivityP5.contP5;
+import static br.edu.utfpr.darlantcc_v1.ActivityP6.contP6;
+import static br.edu.utfpr.darlantcc_v1.ActivityP7.contP7;
+import static br.edu.utfpr.darlantcc_v1.ActivityP8.contP8;
+import static br.edu.utfpr.darlantcc_v1.ActivityP9.contP9;
 
 import android.app.Activity;
 import android.content.Context;
@@ -44,7 +63,7 @@ import br.edu.utfpr.darlantcc_v1.model.Pessoa;
 import br.edu.utfpr.darlantcc_v1.model.Resposta;
 import br.edu.utfpr.darlantcc_v1.persistencia.RespostaDatabase;
 
-public class ActivityP6 extends AppCompatActivity {
+public class ActivityP25 extends AppCompatActivity {
 
     private Button botaoProximo;
     private Button botaoAnterior;
@@ -62,7 +81,7 @@ public class ActivityP6 extends AppCompatActivity {
     private ArrayList<Resposta> listaRespostas; //local
     private RespostaDatabase respostaDatabase; //BD Room
 
-    public static Context contP6;
+    public static Context contP25;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +89,7 @@ public class ActivityP6 extends AppCompatActivity {
         //Seta fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_p6);
+        setContentView(R.layout.activity_p25);
 
         /*ActionBar actionBar = getSupportActionBar();
         if (actionBar != null){
@@ -108,8 +127,8 @@ public class ActivityP6 extends AppCompatActivity {
             public void onClick(View view) {
 
                 //destino             origem
-                //ActivityP6.iniciar(ActivityP3.this,PESSOA,ID);
-                ActivityP7.iniciar(ActivityP6.this,PESSOA,ID);
+                //ActivityP7.iniciar(ActivityP3.this,PESSOA,ID);
+                ActivityFim.iniciar(ActivityP25.this,PESSOA,ID);
 
             }
         });
@@ -128,7 +147,7 @@ public class ActivityP6 extends AppCompatActivity {
         imagem1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ActivityP6.this,
+                Toast.makeText(ActivityP25.this,
                         getResources().getString(R.string.clicou_imagem1),
                         Toast.LENGTH_LONG).show();
 
@@ -140,7 +159,7 @@ public class ActivityP6 extends AppCompatActivity {
         imagem2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ActivityP6.this,
+                Toast.makeText(ActivityP25.this,
                         getResources().getString(R.string.clicou_imagem2),
                         Toast.LENGTH_LONG).show();
 
@@ -149,7 +168,7 @@ public class ActivityP6 extends AppCompatActivity {
         });
 
         //Para finalizar no filho
-        contP6= ActivityP6.this;
+        contP25= ActivityP25.this;
     }
 
     public void atualizarResposta(int id){
@@ -165,7 +184,7 @@ public class ActivityP6 extends AppCompatActivity {
 
     public static void iniciar(AppCompatActivity origem, Pessoa pessoa, String id){
 
-        Intent intent = new Intent(origem, ActivityP6.class);
+        Intent intent = new Intent(origem, ActivityP25.class);
 
         intent.putExtra("CAMPO_ID", id);
         intent.putExtra("CAMPO_ID_PESSOA", String.valueOf(pessoa.getID()));
@@ -204,22 +223,80 @@ public class ActivityP6 extends AppCompatActivity {
 
         if(id==R.id.menuItemCancelar) {
 
-                Activity parentActivity1;
-                Activity parentActivity2;
-                Activity parentActivity3;
-                Activity parentActivity4;
-                Activity parentActivity5;
+            Activity parentActivity1;
+            Activity parentActivity2;
+            Activity parentActivity3;
+            Activity parentActivity4;
+            Activity parentActivity5;
+            Activity parentActivity6;
+            Activity parentActivity7;
+            Activity parentActivity8;
+            Activity parentActivity9;
+            Activity parentActivity10;
+            Activity parentActivity11;
+            Activity parentActivity12;
+            Activity parentActivity13;
+            Activity parentActivity14;
+            Activity parentActivity15;
+            Activity parentActivity16;
+            Activity parentActivity17;
+            Activity parentActivity18;
+            Activity parentActivity19;
+            Activity parentActivity20;
+            Activity parentActivity21;
+            Activity parentActivity22;
+            Activity parentActivity23;
+            Activity parentActivity24;
 
-                parentActivity1=(Activity)contP1;
-                parentActivity2=(Activity)contP2;
-                parentActivity3=(Activity)contP3;
-                parentActivity4=(Activity)contP4;
-                parentActivity5=(Activity)contP5;
-                parentActivity5.finish();
-                parentActivity4.finish();
-                parentActivity3.finish();
-                parentActivity2.finish();
-                parentActivity1.finish();
+            parentActivity1=(Activity)contP1;
+            parentActivity2=(Activity)contP2;
+            parentActivity3=(Activity)contP3;
+            parentActivity4=(Activity)contP4;
+            parentActivity5=(Activity)contP5;
+            parentActivity6=(Activity)contP6;
+            parentActivity7=(Activity)contP7;
+            parentActivity8=(Activity)contP8;
+            parentActivity9=(Activity)contP9;
+            parentActivity10=(Activity)contP10;
+            parentActivity11=(Activity)contP11;
+            parentActivity12=(Activity)contP12;
+            parentActivity13=(Activity)contP13;
+            parentActivity14=(Activity)contP14;
+            parentActivity15=(Activity)contP15;
+            parentActivity16=(Activity)contP16;
+            parentActivity17=(Activity)contP17;
+            parentActivity18=(Activity)contP18;
+            parentActivity19=(Activity)contP19;
+            parentActivity20=(Activity)contP20;
+            parentActivity21=(Activity)contP21;
+            parentActivity22=(Activity)contP22;
+            parentActivity23=(Activity)contP23;
+            parentActivity24=(Activity)contP24;
+
+            parentActivity24.finish();
+            parentActivity23.finish();
+            parentActivity22.finish();
+            parentActivity21.finish();
+            parentActivity20.finish();
+            parentActivity19.finish();
+            parentActivity18.finish();
+            parentActivity17.finish();
+            parentActivity16.finish();
+            parentActivity15.finish();
+            parentActivity14.finish();
+            parentActivity13.finish();
+            parentActivity12.finish();
+            parentActivity11.finish();
+            parentActivity10.finish();
+            parentActivity9.finish();
+            parentActivity8.finish();
+            parentActivity7.finish();
+            parentActivity6.finish();
+            parentActivity5.finish();
+            parentActivity4.finish();
+            parentActivity3.finish();
+            parentActivity2.finish();
+            parentActivity1.finish();
 
                 finalizar();
 
