@@ -61,6 +61,51 @@
     <string name="p10_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
     <string name="p10_numero">PERGUNTA: 10</string>
 
+    <string name="p11_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p11_numero">PERGUNTA: 11</string>
+
+    <string name="p12_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p12_numero">PERGUNTA: 12</string>
+
+    <string name="p13_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p13_numero">PERGUNTA: 13</string>
+
+    <string name="p14_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p14_numero">PERGUNTA: 14</string>
+
+    <string name="p15_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p15_numero">PERGUNTA: 15</string>
+
+    <string name="p16_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p16_numero">PERGUNTA: 16</string>
+
+    <string name="p17_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p17_numero">PERGUNTA: 17</string>
+
+    <string name="p18_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p18_numero">PERGUNTA: 18</string>
+
+    <string name="p19_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p19_numero">PERGUNTA: 19</string>
+
+    <string name="p20_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p20_numero">PERGUNTA: 20</string>
+
+    <string name="p21_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p21_numero">PERGUNTA: 21</string>
+
+    <string name="p22_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p22_numero">PERGUNTA: 22</string>
+
+    <string name="p23_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p23_numero">PERGUNTA: 23</string>
+
+    <string name="p24_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p24_numero">PERGUNTA: 24</string>
+
+    <string name="p25_pergunta">PERGUNTA: QUAL É O MAIOR?</string>
+    <string name="p25_numero">PERGUNTA: 25</string>
+
     <string name="respostas_menuItemNovo">Novo</string>
     <string name="respostas_menuItemRespostas">Respostas</string>
     <string name="respostas_menuItemPDF">PDF</string>
