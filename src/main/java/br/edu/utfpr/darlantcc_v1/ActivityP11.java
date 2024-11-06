@@ -162,7 +162,7 @@ public class ActivityP11 extends AppCompatActivity {
         Resposta resposta = respostaDatabase.respostaDAO().queryForId(Integer.parseInt(ID));
 
         //Atualiza o campo 'desta' pergunta
-        resposta.setR3(String.valueOf(id));
+        resposta.setR11(String.valueOf(id));
 
         //Atualiza na base de dados
         respostaDatabase.respostaDAO().update(resposta);
