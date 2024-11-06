@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ActivityP2">
+    tools:context=".ActivityP3">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
-                        android:text="@string/p3_pergunta"
+                        android:text="@string/p4_pergunta"
                         android:textSize="30dp"
                         app:fontFamily="sans-serif-light"
                         app:layout_constraintStart_toStartOf="parent"
@@ -67,9 +67,13 @@
 
                     <ImageView
                         android:id="@+id/imagem1"
-                        android:layout_width="500dp"
-                        android:layout_height="500dp"
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_marginStart="132dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.876"
                         app:srcCompat="@drawable/p3a" />
 
                     <ImageView
