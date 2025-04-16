@@ -8,69 +8,96 @@ Desenvolver um aplicativo móvel com base na **Teoria das Molduras Relacionais (
 
 ## 🧠 Fundamentação Teórica
 
-O projeto baseia-se nos princípios da RFT, em especial:
+O projeto baseia-se nos princípios da RFT, com foco em:
 
 - **Implicação Mútua (IM)**
 - **Transformação de Função do Estímulo (TFE)**
 
 Esses conceitos são aplicados em experimentos que exploram a associação cognitiva de estímulos visuais e linguísticos.
 
-## 🛠 Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
-- **Java** (Desenvolvimento Android)
-- **Room Database** (Persistência local de dados)
-- **Oracle Cloud** (Hospedagem e banco de dados remoto via MySQL/phpMyAdmin)
-- **Android Studio Koala Feature Drop 2024.1.2**
+- **Java** como linguagem principal
+- **Android SDK** com suporte ao AndroidX
+- **Android Studio** como ambiente de desenvolvimento (IDE)
+- **XML** para criação de layouts de interface
+- Componentes Android utilizados: `EditText`, `TextView`, `Button`, `Intent`, `Activity`
+- **Room Database** para persistência local dos dados
+- **Oracle Cloud** para hospedagem e análise de dados via phpMyAdmin
 
-## 🧩 Estrutura do Projeto
+## 📱 Estrutura do Projeto
 
-O projeto é composto pelas seguintes principais atividades:
+```
+TCC-Desenvolvimento-Android-main/
+├── src/
+│   ├── main/
+│   │   ├── java/br/edu/utfpr/darlantcc_v1/
+│   │   │   ├── ActivityInicio.java
+│   │   │   ├── ActivityCapa.java
+│   │   │   ├── ActivityCadastrarPessoa.java
+│   │   │   ├── ActivityP1.java
+│   │   │   ├── ... até ActivityP25.java
+│   │   │   └── ActivityFim.java
+│   │   ├── res/
+│   │   │   ├── layout/ (arquivos XML das telas)
+│   │   │   └── drawable/ (ícones e imagens)
+│   │   └── AndroidManifest.xml
+│   └── androidTest/
+│       └── ExampleInstrumentedTest.java
+```
 
-- **Cadastro de participantes**
-- **Execução de questionários baseados em 5 experimentos**
-- **Visualização de resultados**
-- **Exportação de dados (PDF/TXT)**
-- **Análise estatística dos resultados**
+## 🧪 Experimentos Cognitivos
 
-## 📊 Experimentos
+O app aplica 5 experimentos baseados em RFT:
 
-Os questionários do aplicativo foram divididos em 5 experimentos, cada um com foco em um aspecto sensorial ou cognitivo:
+1. **Comparacão de Tamanho**
+![Experimento 1_page-0001](https://github.com/user-attachments/assets/7ca797a8-a846-42aa-bd1d-6148b036cb77)
 
-1. Comparação de tamanhos
-2. Identificação por características
-3. Análise sensorial da cor vermelha
-4. Mudança de foco para características
-5. Análise sensorial da cor verde
 
-## 🔒 Requisitos Funcionais
+2. **Identificação por Características**
+3. **Análise Sensorial (Cor Vermelha)**
+4. **Mudança de Foco (Caractere x Cor)**
+5. **Análise Sensorial (Cor Verde)**
 
-- Cadastro e autenticação de usuários
-- Registro e edição de participantes
-- Execução e registro de respostas dos experimentos
-- Visualização e exportação dos resultados
 
-## 💡 Motivação
 
-A ausência de ferramentas gratuitas, em português e voltadas especificamente para avaliação de linguagem em crianças com TEA motivou o desenvolvimento deste projeto. O aplicativo visa promover a inclusão e estimular o desenvolvimento cognitivo de forma acessível e eficaz.
+## 🔐 Funcionalidades
 
-## 📷 Interface do Aplicativo
+- Autenticação de usuário com e-mail e senha
+- Cadastro, edição e exclusão de participantes
+- Execução de questionários baseados em RFT
+- Visualização e exportação das respostas (PDF/TXT)
+- Visualização de gráficos com estatísticas
 
-O app conta com telas intuitivas que incluem:
-- Tela de login
-- Tela principal com navegação
-- Tela de seleção de participante
-- Telas para os experimentos
-- Tela de visualização de respostas
+## 📊 Análise de Dados
+
+Os dados coletados pelos experimentos são analisados via scripts PHP conectados ao banco de dados MySQL (Oracle Cloud), com visualização através de gráficos gerados na interface web.
 
 ## 📦 Como Executar o Projeto
 
-1. Abra o projeto no **Android Studio**.
-2. Compile e execute em um dispositivo ou emulador com Android 8 ou superior.
-3. Certifique-se de configurar o acesso à base de dados na **Oracle Cloud** conforme documentado.
+1. Abra o projeto com o **Android Studio** (versão 2024.1.2 ou superior).
+2. Compile e execute o app em um dispositivo ou emulador Android (API 26+).
+3. Configure o backend e banco de dados conforme instruções disponíveis em `docs/oracle_cloud_setup.md`.
 
-## 📑 Licença
+## 📊 Requisitos
 
-Este projeto está licenciado sob a [Creative Commons 4.0 Internacional](https://creativecommons.org/licenses/by/4.0/deed.pt_BR). Sinta-se à vontade para remixar, adaptar e utilizar com atribuição adequada ao autor.
+### Funcionais
+
+- Cadastro de usuários
+- Autenticação e login
+- Preenchimento de questionários
+- Visualização de resultados
+
+### Não-Funcionais
+
+- Alta disponibilidade (99.9%)
+- Criptografia AES-256 para senhas
+- Interface amigável e intuitiva
+- Suporte a até 1000 requisições simultâneas
+
+## 📁 Licença
+
+Este projeto está licenciado sob a [Creative Commons 4.0 Internacional](https://creativecommons.org/licenses/by/4.0/deed.pt_BR).
 
 ## 👨‍🏫 Autor
 
