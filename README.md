@@ -51,11 +51,10 @@ TCC-Desenvolvimento-Android-main/
 O app aplica 5 experimentos baseados em RFT:
 
 1. **Comparacão de Tamanho**
-2. 
 ![Experimento 1_page-0001](https://github.com/user-attachments/assets/7ca797a8-a846-42aa-bd1d-6148b036cb77)
 
 
-3. **Identificação por Características**
+2. **Identificação por Características**
 
 ![Experimento 2](https://github.com/user-attachments/assets/28067f7c-7454-46aa-b833-d85cee8fe682)
 
