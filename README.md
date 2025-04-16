@@ -71,6 +71,26 @@ O app aplica 5 experimentos baseados em RFT:
 
 ![Experimento 5](https://github.com/user-attachments/assets/fc541b5e-03e9-4b37-8f23-64dda5f0851c)
 
+🖼️ Telas do Aplicativo
+
+As principais telas do aplicativo incluem:
+
+Tela de Login: Autenticação do usuário via e-mail e senha.
+![Tela de login (2)](https://github.com/user-attachments/assets/ef885bda-5847-4395-a00b-426b756c4a1d)
+
+Tela Inicial (Menu): Acesso ao questionário, cadastro de usuários e respostas salvas.
+![menu (2)](https://github.com/user-attachments/assets/1f78f37d-389a-45fd-ac5e-05f221d6b2f9)
+
+Tela de Seleção de Participante: Escolha do usuário para iniciar o questionário.
+![subquest (2)](https://github.com/user-attachments/assets/ce2572a7-2b68-44c2-ac85-8a23a4491ba8)
+
+
+Tela de Resultados: Visualização e exportação das respostas salvas (em PDF/TXT).
+
+![pdf](https://github.com/user-attachments/assets/28cfabc6-a8cf-456f-8595-e6058ae59bc9)
+
+Essas telas foram projetadas com interface acessível e amigável para facilitar o uso por pais, terapeutas e crianças com TEA.
+
 
 ## 🔐 Funcionalidades
 
