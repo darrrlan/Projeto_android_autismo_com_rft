@@ -51,14 +51,26 @@ TCC-Desenvolvimento-Android-main/
 O app aplica 5 experimentos baseados em RFT:
 
 1. **Comparacão de Tamanho**
+2. 
 ![Experimento 1_page-0001](https://github.com/user-attachments/assets/7ca797a8-a846-42aa-bd1d-6148b036cb77)
 
 
-2. **Identificação por Características**
+3. **Identificação por Características**
+
+![Experimento 2](https://github.com/user-attachments/assets/28067f7c-7454-46aa-b833-d85cee8fe682)
+
 3. **Análise Sensorial (Cor Vermelha)**
+
+![Experimento 3](https://github.com/user-attachments/assets/90732a42-79cb-4f13-a74d-6ea634f83f50)
+
+
 4. **Mudança de Foco (Caractere x Cor)**
+
+![Experimento 4](https://github.com/user-attachments/assets/b19c563b-0309-464e-93e1-ee9bd11b7fc2)
+
 5. **Análise Sensorial (Cor Verde)**
 
+![Experimento 5](https://github.com/user-attachments/assets/fc541b5e-03e9-4b37-8f23-64dda5f0851c)
 
 
 ## 🔐 Funcionalidades
