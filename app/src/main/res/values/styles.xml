@@ -1,0 +1,25 @@
+<resources>
+
+    <style name="Widget.Theme.darlantcc_v1.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item> <!-- Esconde a status bar -->
+        <item name="android:windowNoTitle">true</item>    <!-- Esconde o título -->
+    </style>
+
+
+    <style name="Widget.Theme.darlantcc_v1.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+        <style name="CustomEditTextStyle">
+            <item name="android:background">@drawable/edit_text_background</item>
+            <item name="android:textColor">#000000</item>
+            <item name="android:textSize">16sp</item>
+            <item name="android:hint">@string/email_hint</item>
+        </style>
+
+</resources>
