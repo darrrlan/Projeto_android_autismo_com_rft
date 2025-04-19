@@ -87,6 +87,18 @@
         android:textColor="#1A2F5A"
         android:textSize="20sp"
         android:textStyle="bold" />
+    <TextView
+        android:id="@+id/ref"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="300dp"
+        android:fontFamily=""
+        android:gravity="center"
+        android:text="O autismo não é um erro de processamento. É um sistema operacional diferente."
+        android:textColor="#1A2F5A"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 
 </FrameLayout>
