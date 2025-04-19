@@ -1,22 +1,6 @@
-/*
-    Copyright (C) 2024  Lucio A. Rocha
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
-
 package br.edu.utfpr.darlantcc_v1;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -25,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -37,16 +21,18 @@ import br.edu.utfpr.darlantcc_v1.utils.UtilsGUI;
 
 public class ActivityInicio extends AppCompatActivity {
 
-    private Button botaoCadastro;
-    private Button botaoQuestionario;
-    private Button botaoRespostasSalvas;
+    private LinearLayout botaoCadastro;
+    private LinearLayout botaoQuestionario;
+    private LinearLayout botaoRespostasSalvas;
 
     public PessoaDatabase pessoaDatabase;  //Todos os jogadores na BD Room
 
     public static Context contextToString; //Para internacionalizar a exibicao do toString da 'Cidade'
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //setTheme(R.style.@style/Theme.darlantcc_v1);
         super.onCreate(savedInstanceState);
         //Seta fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -60,87 +46,49 @@ public class ActivityInicio extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true); //Cria uma nova instancia da Activity parent
         }
 
-        //Apenas deixa acessar o jogo se tiver pelo menos 6 (seis) jogadores
         pessoaDatabase = PessoaDatabase.getDatabase(ActivityInicio.this);
 
-
-
-        //Esse estah funcionando
+        // Atualizado: LinearLayout como botão de questionário
         botaoQuestionario = findViewById(R.id.botaoQuestionario);
         botaoQuestionario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 ArrayList<Pessoa> lista = (ArrayList<Pessoa>) pessoaDatabase.pessoaDAO().queryAll();
-                if(lista.size()<1) {
+                if(lista.size() < 1) {
                     UtilsGUI.avisoErro(ActivityInicio.this, getResources().getString(R.string.inicio_sem_cadastro));
                     return;
                 }
                 ActivityQuestionario.iniciar(ActivityInicio.this);
-
             }
         });
 
-       /*botaoJogo = findViewById(R.id.botaoJogo);
-        botaoJogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                ArrayList<Jogador> lista = (ArrayList<Jogador>) pessoaDatabase.jogadorDAO().queryAll();
-                if(lista.size()<6) {
-                    UtilsGUI.avisoErro(ActivityInicio.this, getResources().getString(R.string.jogo_faltam_jogadores));
-                    return;
-                }
-                ActivityJogo.iniciar(ActivityInicio.this);
-
-            }
-        });*/
-
-        /*botaoEstatistica = findViewById(R.id.botaoEstatistica);
-        botaoEstatistica.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                ActivityEstatisticas.iniciar(ActivityInicio.this);
-
-            }
-        });*/
-
+        // Atualizado: LinearLayout como botão de cadastro
         botaoCadastro = findViewById(R.id.botaoCadastro);
         botaoCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 ActivityVisualizarPessoas.iniciar(ActivityInicio.this);
-
             }
         });
 
+        // Atualizado: LinearLayout como botão de respostas salvas
         botaoRespostasSalvas = findViewById(R.id.botaoRespostasSalvas);
         botaoRespostasSalvas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ActivityVisualizarRespostas.iniciar(ActivityInicio.this);
-
             }
         });
     }
 
     public static void iniciar(ActivityCapa activityCapa){
-
         Intent intent = new Intent(activityCapa, ActivityInicio.class);
-
         activityCapa.startActivityForResult(intent,1); //Inicia esta ActivityInicio com requestcode=1
-
     }
 
     public void finalizar() {
-
-        //Retorno da Activity no fim da chamada
         Intent intent = new Intent();
-
         setResult(Activity.RESULT_CANCELED, intent);
-
         finish();
     }
 
@@ -151,20 +99,19 @@ public class ActivityInicio extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.inicio_opcoes_menu,menu);
+        getMenuInflater().inflate(R.menu.inicio_opcoes_menu, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         int id = item.getItemId();
 
-        if(id==R.id.menuItemSobre){
-                ActivitySobre.exibir(this);
-                return true;
-            } else {
-                return super.onOptionsItemSelected(item);
-            }
-
+        if(id == R.id.menuItemSobre){
+            ActivitySobre.exibir(this);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 }

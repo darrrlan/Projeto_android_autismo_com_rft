@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Darlan TCC</string>
+    <string name="app_name"><font color="#1976D2">T</font><font color="#D32F2F">E</font><font color="#FBC02D">A</font>link</string>
     <string name="app_versao">Versão: 30-08-2024</string>
     <string name="app_site">https://darlantcc.com.br</string>
     <string name="email_hint">E-mail</string>
@@ -171,5 +171,12 @@
     <string name="registro_removido">Resposta removida.</string>
     <string name="registro_titulo_dica"> - Aperte e segure para excluir</string>
     <string name="title_activity_questionario">ActivityQuestionario</string>
+    <string name="todo">TODO</string>
+    <string name="respostas_salvas">Respostas Salvas</string>
+    <string name="pronto_para_explorar_n_aqui_est_o_menu">Pronto para explorar?\n Aqui está o menu!</string>
+    <string name="question_rio">Questionário</string>
+    <string name="cone_de_cadastro">Ícone de cadastro</string>
+    <string name="cadastro">Cadastro</string>
+    <string name="cone_de_respostas_salvas">Ícone de respostas salvas</string>
 
 </resources>
