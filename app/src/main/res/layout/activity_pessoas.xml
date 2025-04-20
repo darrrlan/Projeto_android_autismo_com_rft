@@ -1,38 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityVisualizarPessoas">
 
-    <!-- Vertical -->
+    <!-- Fundo -->
+    <ImageView
+        android:id="@+id/imageViewFundo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/fundo" />
+
+    <!-- Texto de introdução -->
+    <TextView
+        android:id="@+id/textTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="40dp"
+        android:text="Cada criança é única. Cada cadastro,\n um universo de possibilidades"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#1A1A1A" />
+
+    <!-- Imagem da criança -->
+    <ImageView
+        android:id="@+id/imageViewCrianca"
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginEnd="150dp"
+        android:layout_marginTop="-10dp"
+        app:srcCompat="@drawable/crianca_3" />
+
+    <!-- Card com a lista de pessoas -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="100dp">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+            android:layout_width="600dp"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
             app:cardCornerRadius="30dp"
             app:cardElevation="20dp">
 
             <ListView
                 android:id="@+id/listViewPessoas"
-                android:layout_width="600dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:textSize="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:padding="20dp"
+                android:src="@android:drawable/ic_input_add"
                 tools:listitem="@layout/linha_pessoa" />
-
         </androidx.cardview.widget.CardView>
     </LinearLayout>
-</HorizontalScrollView>
+
+    <!-- Botão de adicionar -->
+    <ImageButton
+        android:id="@+id/btnAdicionarPessoa"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="560dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/botao_circular_verde"
+        android:src="@android:drawable/ic_input_add"
+        android:contentDescription="Adicionar"
+        android:scaleType="centerInside" />
+</FrameLayout>

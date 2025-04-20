@@ -20,18 +20,25 @@ package br.edu.utfpr.darlantcc_v1;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 
+import android.graphics.Color;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import br.edu.utfpr.darlantcc_v1.model.Pessoa;
@@ -40,182 +47,98 @@ import br.edu.utfpr.darlantcc_v1.utils.UtilsGUI;
 
 public class ActivityVisualizarPessoas extends AppCompatActivity {
 
-    private ListView      listViewPessoas;
+    private ListView listViewPessoas;
     private PessoaAdapter listaAdapter;
-
-    private ArrayList<Pessoa> listaPessoas; //memoria local
-    private PessoaDatabase pessoaDatabase;   //BD
-
-    private int        posicaoSelecionada = -1;
+    private ArrayList<Pessoa> listaPessoas;
+    private PessoaDatabase pessoaDatabase;
+    private int posicaoSelecionada = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Seta fullscreen
+        setContentView(R.layout.activity_pessoas);
+
+
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_pessoas);
 
         setTitle(getResources().getString(R.string.app_name));
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true); //Cria uma nova instancia da Activity parent
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            SpannableString spannableTitle = new SpannableString("TEAlink");
+
+            spannableTitle.setSpan(new ForegroundColorSpan(Color.parseColor("#1976D2")), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // T
+            spannableTitle.setSpan(new ForegroundColorSpan(Color.parseColor("#D32F2F")), 1, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // E
+            spannableTitle.setSpan(new ForegroundColorSpan(Color.parseColor("#FBC02D")), 2, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // A
+
+            // As letras "link" ficam com a cor padrão da ActionBar
+
+            actionBar.setTitle(spannableTitle);
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        ////////////////
-        listViewPessoas = findViewById(R.id.listViewPessoas);
+        ImageButton btnAdicionar = findViewById(R.id.btnAdicionarPessoa);
+        btnAdicionar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityCadastrarPessoa.novoCadastro(ActivityVisualizarPessoas.this);
+            }
+        });
 
-        //Informar que a listView abre menus de contexto
+        listViewPessoas = findViewById(R.id.listViewPessoas);
         registerForContextMenu(listViewPessoas);
 
-        listViewPessoas.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
+        listViewPessoas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                posicaoSelecionada = i;
+                alterarPessoa();
+            }
+        });
 
-                    //Quando clica no item do menu, acessa o alterarPessoa
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                        posicaoSelecionada = i;
-
-                        alterarPessoa();
-
-                    }
-                });
-
-        //Apenas um item pode ser clicado por vez
         listViewPessoas.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
-        //inicia artificialmente a lista de pessoas
-        //quando nao ha nenhum cadastrado
         popularPessoas();
-
         popularLista();
     }
 
     private void popularPessoas() {
-
         pessoaDatabase = PessoaDatabase.getDatabase(this);
-
-        //Simula a adicao arbitraria de pessoas na lista e na base de dados
-        //
-        //Verifica se ha conteudo na base de dados.
-        // Se tem conteudo, apenas atualiza a lista (Ex.: fechou o aplicativo, ou saiu da activity)
-        // Se nao tem conteudo, cria uma nova lista e uma nova base de dados.
-
-        //Atualiza a listaPessoas com os dados coletados do Room, para ter o ID
         listaPessoas = (ArrayList<Pessoa>) pessoaDatabase.pessoaDAO().queryAll();
 
-        if(listaPessoas.size()<6) { //Abriu o app e nao tem nada na base de dados OU
-                                     //   Cadastrou menos de 6 pessoas
-
+        if (listaPessoas.size() < 6) {
             for (int i = 0; i < 6; i++) {
                 Pessoa pessoa = new Pessoa();
                 pessoa.setNOME("Fulano" + i);
-
                 listaPessoas.add(pessoa);
-
                 pessoaDatabase.pessoaDAO().insert(pessoa);
-
             }
-            //Precisa atualizar de novo a consulta da base de dados, para ter o ID do que foi inserido
-            //Atualiza a listaPessoas com os dados coletados do Room, para ter o ID
             listaPessoas = (ArrayList<Pessoa>) pessoaDatabase.pessoaDAO().queryAll();
         }
-
     }
-    private void popularLista(){
 
+    private void popularLista() {
         listaPessoas = (ArrayList<Pessoa>) pessoaDatabase.pessoaDAO().queryAll();
-
-
-        //Esse estah funcionando
-        /*listaAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1,
-                listaPessoas);
-        */
         listaAdapter = new PessoaAdapter(this, R.layout.linha_pessoa, listaPessoas);
-        listViewPessoas.setAdapter(listaAdapter); //Based on: https://stackoverflow.com/questions/34328235/how-to-extends-listactivity-where-appcompatactivity-in-android-activity
-
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(resultCode == Activity.RESULT_OK){
-            Bundle bundle = data.getExtras();
-            if(bundle != null){
-
-                String nome = bundle.getString(ActivityCadastrarPessoa.CAMPO_NOME);
-                String idade = bundle.getString(ActivityCadastrarPessoa.CAMPO_IDADE);
-
-                if (requestCode == ActivityCadastrarPessoa.ALTERAR) { //Apenas altera o cadastro
-
-                    posicaoSelecionada = -1;
-
-                } else { //Novo cadastro, adiciona na lista
-                    Pessoa pessoa = new Pessoa();
-
-                    //ID foi gerado pelo Room, em Cadastro.salvar --> insert
-                    //pessoa.setID(Integer.parseInt(ID));
-                    pessoa.setNOME(nome);
-                    pessoa.setIDADE(idade);
-
-                    //Toast.makeText(this,cidade.isVisitada()+"",Toast.LENGTH_SHORT).show();
-
-                    listaPessoas.add(pessoa);
-                }
-
-                //Jah guardou no banco no metodo 'Cadastro.salvar'.
-                //Atualiza a listView
-                listaAdapter.clear(); //Para que o 'custom adapter' exiba a listView apos a insercao
-                popularLista(); //Para atualizar o banco no room e me dar o ID do pessoa. Caso contario, pessoa.getID nao funciona :-)
-                listaAdapter.notifyDataSetChanged();
-
-            }
-        }
-        if(resultCode == Activity.RESULT_CANCELED){
-            Toast.makeText(this,
-                    R.string.cadastro_cancelado, Toast.LENGTH_SHORT).show();
-        }
-        if(resultCode == ActivityCadastrarPessoa.RESULT_DELETED){
-            Toast.makeText(this,
-                    R.string.cadastro_removido, Toast.LENGTH_SHORT).show();
-            //Atualiza a listView
-            listaAdapter.clear(); //Para que o 'custom adapter' exiba a listView apos a insercao
-            popularLista(); //Para atualizar o banco no room e me dar o ID do pessoa. Caso contario, pessoa.getID nao funciona :-)
-            listaAdapter.notifyDataSetChanged();
-        }
-
+        listViewPessoas.setAdapter(listaAdapter);
     }
 
-
-
-    private void alterarPessoa(){
-
+    private void alterarPessoa() {
         Pessoa pessoa = listaPessoas.get(posicaoSelecionada);
-
-        //Toast.makeText(this,cidade.isVisitada()+"",Toast.LENGTH_SHORT).show();
-
         ActivityCadastrarPessoa.alterarCadastro(this, pessoa);
     }
 
-    public static void iniciar(ActivityInicio activityInicio){
-
+    public static void iniciar(ActivityInicio activityInicio) {
         Intent intent = new Intent(activityInicio, ActivityVisualizarPessoas.class);
-
-        activityInicio.startActivityForResult(intent,1); //Inicia esta ActivityPessoas com requestcode=1
-
+        activityInicio.startActivityForResult(intent, 1);
     }
 
     public void finalizar() {
-
-        //Retorno da Activity no fim da chamada
         Intent intent = new Intent();
-
         setResult(Activity.RESULT_CANCELED, intent);
-
         finish();
     }
 
@@ -225,135 +148,83 @@ public class ActivityVisualizarPessoas extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.pessoa_opcoes,menu);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.pessoa_opcoes, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 
-        switch(item.getItemId()){
-           /* case R.id.menuItemAdicionar: {
-                ActivityCadastrarPessoa.novoCadastro(this);
-                return true;
-            }
-            case R.id.menuItemCadastroExcluir: {
-                //excluirTodos(this);
-                Toast.makeText(this,"Opção excluir todos indisponível. Aguarde.",Toast.LENGTH_SHORT).show();
-                return true;
-            }*/
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
-            default: {
-                return super.onOptionsItemSelected(item);
-            }
+        if (item.getItemId() == R.id.menuItemCadastroExcluir) {
+            excluir(info.position);
+            return true;
         }
+        return super.onContextItemSelected(item);
     }
-
-    /*private void excluirTodos(ActivityPessoas activityPessoas) {
-
-        String mensagem = getString(R.string.pessoa_desejaexcluirtodos);
-
-        //Abre uma janelaModal: é a janaela que aparece acima das outras
-        DialogInterface.OnClickListener listener =
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        switch(i){
-                            case DialogInterface.BUTTON_POSITIVE: {
-
-                                PessoaDatabase database = PessoaDatabase.getDatabase(ActivityPessoas.this);
-                                for(Pessoa pessoa : listaPessoas) {
-                                    database.pessoaDAO().delete(pessoa);
-                                }
-
-                                //Atualiza a listView
-                                listaAdapter.clear(); //Para que o 'custom adapter' exiba a listView apos a remocao
-                                popularLista(); //Para atualizar o banco no room
-                                listaAdapter.notifyDataSetChanged();
-
-                                Toast.makeText(ActivityPessoas.this, R.string.cadastro_removido, Toast.LENGTH_SHORT).show();
-
-                                break;
-                            }
-                            case DialogInterface.BUTTON_NEGATIVE: {
-                                break;
-                            }
-                        }
-                    }
-                };
-
-        UtilsGUI.confirmaAcao(this, mensagem, listener);
-
-
-    }
-*/
-    @Override
-    public boolean onContextItemSelected(MenuItem item){
-
-        AdapterView.AdapterContextMenuInfo info;
-
-        info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
-        int id = item.getItemId();
-
-        if(id==R.id.menuItemCadastroExcluir) {
-                excluir(info.position);
-                return true;
-            } else {
-                return super.onContextItemSelected(item);
-            }
-
-
-    }
-
 
     @Override
-    public void onCreateContextMenu(ContextMenu menu, View v,
-                                    ContextMenu.ContextMenuInfo menuInfo){
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-
         getMenuInflater().inflate(R.menu.pessoa_menu_contexto, menu);
-
     }
 
     private void excluir(int pos) {
-
         String mensagem = getString(R.string.cadastro_desejaexcluir);
 
-        //Abre uma janelaModal: é a janaela que aparece acima das outras
-        DialogInterface.OnClickListener listener =
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        switch(i){
-                            case DialogInterface.BUTTON_POSITIVE: {
-
-                                Pessoa pessoa = listaPessoas.get(pos);
-
-                                pessoaDatabase.pessoaDAO().delete(pessoa);
-
-
-                                //Atualiza a listView
-                                listaAdapter.clear(); //Para que o 'custom adapter' exiba a listView apos a remocao
-                                popularLista(); //Para atualizar o banco no room
-                                listaAdapter.notifyDataSetChanged();
-
-                                Toast.makeText(ActivityVisualizarPessoas.this, R.string.cadastro_removido, Toast.LENGTH_SHORT).show();
-
-                                break;
-                            }
-                            case DialogInterface.BUTTON_NEGATIVE: {
-                                break;
-                            }
-                        }
-                    }
-                };
+        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (i == DialogInterface.BUTTON_POSITIVE) {
+                    Pessoa pessoa = listaPessoas.get(pos);
+                    pessoaDatabase.pessoaDAO().delete(pessoa);
+                    listaAdapter.clear();
+                    popularLista();
+                    listaAdapter.notifyDataSetChanged();
+                    Toast.makeText(ActivityVisualizarPessoas.this, R.string.cadastro_removido, Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
 
         UtilsGUI.confirmaAcao(this, mensagem, listener);
-
-
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+            Bundle bundle = data.getExtras();
+            if (bundle != null) {
+                String nome = bundle.getString(ActivityCadastrarPessoa.CAMPO_NOME);
+                String idade = bundle.getString(ActivityCadastrarPessoa.CAMPO_IDADE);
+
+                if (requestCode == ActivityCadastrarPessoa.ALTERAR) {
+                    posicaoSelecionada = -1;
+                } else {
+                    Pessoa pessoa = new Pessoa();
+                    pessoa.setNOME(nome);
+                    pessoa.setIDADE(idade);
+                    listaPessoas.add(pessoa);
+                }
+
+                listaAdapter.clear();
+                popularLista();
+                listaAdapter.notifyDataSetChanged();
+            }
+        } else if (resultCode == Activity.RESULT_CANCELED) {
+            Toast.makeText(this, R.string.cadastro_cancelado, Toast.LENGTH_SHORT).show();
+        } else if (resultCode == ActivityCadastrarPessoa.RESULT_DELETED) {
+            Toast.makeText(this, R.string.cadastro_removido, Toast.LENGTH_SHORT).show();
+            listaAdapter.clear();
+            popularLista();
+            listaAdapter.notifyDataSetChanged();
+        }
+    }
 }
