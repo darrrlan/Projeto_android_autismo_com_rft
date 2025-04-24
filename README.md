@@ -59,7 +59,8 @@ Tela Inicial (Menu): Acesso ao questionário, cadastro de usuários e respostas 
 ![Menu](https://github.com/user-attachments/assets/773e7cc0-88d7-43ae-85f5-66064af89aa2)
 
 Tela de Seleção de Participante: Escolha do usuário para iniciar o questionário.
-![subquest (2)](https://github.com/user-attachments/assets/ce2572a7-2b68-44c2-ac85-8a23a4491ba8)
+
+![Subquest](https://github.com/user-attachments/assets/b7e45afa-c711-4e76-b237-9e68418670b0)
 
 
 Tela de Resultados: Visualização e exportação das respostas salvas (em PDF/TXT).
