@@ -69,7 +69,7 @@
                 android:id="@+id/spinnerIdade"
                 android:layout_width="600dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/rounded_edittext"
                 android:padding="20dp" />
         </LinearLayout>

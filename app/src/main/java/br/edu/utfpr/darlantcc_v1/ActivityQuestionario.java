@@ -30,6 +30,9 @@ import android.graphics.pdf.PdfDocument;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -102,7 +105,17 @@ public class ActivityQuestionario extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true); //Cria uma nova instancia da Activity parent
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            SpannableString spannableTitle = new SpannableString("TEAlink");
+
+            spannableTitle.setSpan(new ForegroundColorSpan(Color.parseColor("#1976D2")), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // T
+            spannableTitle.setSpan(new ForegroundColorSpan(Color.parseColor("#D32F2F")), 1, 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // E
+            spannableTitle.setSpan(new ForegroundColorSpan(Color.parseColor("#FBC02D")), 2, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // A
+
+            // As letras "link" ficam com a cor padrão da ActionBar
+
+            actionBar.setTitle(spannableTitle);
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         //
