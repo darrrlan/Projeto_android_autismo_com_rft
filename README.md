@@ -51,7 +51,8 @@ TCC-Desenvolvimento-Android-main/
 As principais telas do aplicativo incluem:
 
 Tela de Login: Autenticação do usuário via e-mail e senha.
-![Tela de login (2)](https://github.com/user-attachments/assets/ef885bda-5847-4395-a00b-426b756c4a1d)
+
+![Menu](https://github.com/user-attachments/assets/b351c84b-afb0-4b94-92e2-19b0d5ab0565)
 
 Tela Inicial (Menu): Acesso ao questionário, cadastro de usuários e respostas salvas.
 ![menu (2)](https://github.com/user-attachments/assets/1f78f37d-389a-45fd-ac5e-05f221d6b2f9)
