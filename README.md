@@ -52,10 +52,11 @@ As principais telas do aplicativo incluem:
 
 Tela de Login: Autenticação do usuário via e-mail e senha.
 
-![Menu](https://github.com/user-attachments/assets/b351c84b-afb0-4b94-92e2-19b0d5ab0565)
+![Tela_login](https://github.com/user-attachments/assets/8ed145a8-0481-4e89-95de-e08a13781340)
 
 Tela Inicial (Menu): Acesso ao questionário, cadastro de usuários e respostas salvas.
-![menu (2)](https://github.com/user-attachments/assets/1f78f37d-389a-45fd-ac5e-05f221d6b2f9)
+
+![Menu](https://github.com/user-attachments/assets/773e7cc0-88d7-43ae-85f5-66064af89aa2)
 
 Tela de Seleção de Participante: Escolha do usuário para iniciar o questionário.
 ![subquest (2)](https://github.com/user-attachments/assets/ce2572a7-2b68-44c2-ac85-8a23a4491ba8)
